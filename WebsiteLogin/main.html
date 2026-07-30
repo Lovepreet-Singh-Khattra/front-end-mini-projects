@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login / Sign Up</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    
+    <div class="success-msg" id="successMsg"></div>
+
+    <form id="login-form">
+      <h2 class="form-title">Welcome Back</h2>
+      <p class="form-subtitle">Login to continue</p>
+
+      <div class="form-group">
+        <label for="login-email">Email</label>
+        <input type="email" id="login-email" placeholder="Enter your email" required>
+        <div class="error-msg" id="login-email-error">Please enter a valid email</div>
+      </div>
+
+      <div class="form-group">
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" placeholder="Enter your password" required>
+        <div class="error-msg" id="login-password-error">Password is required</div>
+      </div>
+
+      <button type="submit" class="btn">Login</button>
+
+      <p class="switch-text">
+        Don't have an account? <a id="show-signup">Sign Up</a>
+      </p>
+    </form>
+
+    <form id="signup-form">
+      <h2 class="form-title">Create Account</h2>
+      <p class="form-subtitle">Sign up to get started</p>
+
+      <div class="form-group">
+        <label for="signup-name">Full Name</label>
+        <input type="text" id="signup-name" placeholder="Enter your name" required>
+        <div class="error-msg" id="signup-name-error">Name is required</div>
+      </div>
+
+      <div class="form-group">
+        <label for="signup-email">Email</label>
+        <input type="email" id="signup-email" placeholder="Enter your email" required>
+        <div class="error-msg" id="signup-email-error">Please enter a valid email</div>
+      </div>
+
+      <div class="form-group">
+        <label for="signup-password">Password</label>
+        <input type="password" id="signup-password" placeholder="Create a password" required>
+        <div class="error-msg" id="signup-password-error">Password must be at least 6 characters</div>
+      </div>
+
+      <div class="form-group">
+        <label for="signup-confirm">Confirm Password</label>
+        <input type="password" id="signup-confirm" placeholder="Confirm your password" required>
+        <div class="error-msg" id="signup-confirm-error">Passwords do not match</div>
+      </div>
+
+      <button type="submit" class="btn">Sign Up</button>
+
+      <p class="switch-text">
+        Already have an account? <a id="show-login">Login</a>
+      </p>
+    </form>
+  </div>
+
+  <script src="script.js">
+    
+  </script>
+</body>
+</html>
