@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #2A2D3E;
+            background: linear-gradient(to right, #FECB6E, #2A2D3E);
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            margin: 40px 0 30px;
+            font-size: 50px;
+            color: #222;
+        }
+
+        .meme-box {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin-bottom: 30px;
+        }
+
+        .meme-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 14px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+            display: none;             
+        }
+
+        .meme-box img.active {
+            display: block;             
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .btn {
+            background: #222;
+            color: #FECB6E;
+            border: none;
+            padding: 12px 22px;
+            font-size: 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            background: #000;
+            transform: scale(1.05);
+        }
+
+        .counter {
+            font-size: 18px;
+            color: #222;
+            font-weight: bold;
+            min-width: 60px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>
+        <i class="fa-regular fa-face-grin-squint fa-beat-fade" style="color: rgb(255, 212, 59);"></i>
+        MEMES
+        <i class="fa-regular fa-face-grin-squint fa-beat-fade" style="color: rgb(255, 212, 59);"></i>
+    </h1>
+
+    <div class="meme-box">
+        <img src="meme1.jpg" alt="Meme 1" class="active">
+        <img src="meme2.jpg" alt="Meme 2">
+        <img src="meme3.jpg" alt="Meme 3">
+        <img src="meme4.jfif" alt="Meme 4">
+        <img src="meme5.jfif" alt="Meme 5">
+    </div>
+
+    <div class="buttons">
+        <button class="btn" onclick="changeMeme(-1)">
+            <i class="fa-solid fa-arrow-left"></i> Prev
+        </button>
+
+        <span class="counter" id="counter">1 / 10</span>
+
+        <button class="btn" onclick="changeMeme(1)">
+            Next <i class="fa-solid fa-arrow-right"></i>
+        </button>
+    </div>
+
+    <script>
+        let current = 0;
+        const memes = document.querySelectorAll('.meme-box img');
+        const total = memes.length;
+        const counter = document.getElementById('counter');
+
+        function changeMeme(direction) {
+            memes[current].classList.remove('active');
+
+            current = (current + direction + total) % total;
+
+            memes[current].classList.add('active');
+
+            counter.textContent = (current + 1) + ' / ' + total;
+        }
+    </script>
+
+</body>
+</html>
